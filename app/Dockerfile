@@ -10,4 +10,6 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["node", "server.js"]
+RUN chmod +x wait-for-it.sh
+
+CMD ["./wait-for-it.sh", "db:3306", "--", "node", "server.js"]
